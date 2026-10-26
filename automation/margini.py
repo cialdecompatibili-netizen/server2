@@ -1,4 +1,4 @@
-# Calcolatore margini IWS. Modifica PIANI (costo reale all'ingrosso) e lancia: python automation/margini.py
+﻿# Calcolatore margini IWS. Modifica PIANI (costo reale all'ingrosso) e lancia: python automation/margini.py
 # Scrive MARGINI.md. Valori = SEGNAPOSTO da sostituire con i costi reali del fornitore.
 import os
 FEE = 0.015   # commissione pagamento (% del prezzo)
@@ -7,8 +7,8 @@ IVA_ESCLUSA = True
 # nome, costo_mensile_fornitore, prezzo_mensile_cliente, clienti_per_server (1 = dedicato), utilizzo_previsto
 PIANI = [
     ("VPS Start (rivendita)",        4.5,   9.9, 1, 1.0),
-    ("Hosting gestito WooCommerce",  30.0,  7.9, 8, 0.7),   # 1 server diviso tra 8 siti
-    ("Hosting gestito PrestaShop",   30.0, 14.9, 6, 0.7),
+    ("Hosting gestito WooCommerce",  30.0, 19.9, 8, 0.7),   # 1 server diviso tra 8 siti
+    ("Hosting gestito PrestaShop",   30.0, 24.9, 6, 0.7),
     ("API LLM a consumo (GPU 1x)",  1100.0, 2400.0, 1, 0.5), # incasso mensile totale a util. 50%
     ("GPU dedicata Medium",        1100.0,  1590.0, 1, 1.0),
 ]
@@ -27,3 +27,4 @@ out += ["", "Regola: non comprare hardware; affitta all'ingrosso e attiva il ser
 p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "MARGINI.md")
 open(p, "w", encoding="utf-8").write("\n".join(out) + "\n")
 print("\n".join(out))
+
